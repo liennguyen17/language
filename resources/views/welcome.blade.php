@@ -12,18 +12,21 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 
         <!-- Styles -->
-        
 
-        
+
+
     </head>
     <body >
         <div class="container">
             <div class="col-md-12">
                 <!-- <h2>@lang('Welcome.title_website')</h2> -->
-                <h3 class="mt-5">{{__('welcome.title_website')}}</h3>
-                <a href="{{ url('lang/en')}}">{{__('welcome.eng_lang')}}</a>
-                <a href="{{ url('lang/jp')}}">{{__('welcome.japan_lang')}}</a>
-                <a href="{{ url('lang/vn')}}">{{__('welcome.vietnam_lang')}}</a>
+                <h3 class="mt-5 text-md-center">{{__('welcome.title_website')}}</h3>
+                <div class="btn-group btn-group-lg my-3">
+
+                    <a class="btn btn-outline-info" href="{{ url('lang/en')}}">{{__('welcome.eng_lang')}}</a>
+                    <a class="btn btn-outline-info" href="{{ url('lang/jp')}}">{{__('welcome.japan_lang')}}</a>
+                    <a class="btn btn-outline-info" href="{{ url('lang/vn')}}">{{__('welcome.vietnam_lang')}}</a>
+                </div>
                 <br>
                 <div class="btn-group my-3" >
 

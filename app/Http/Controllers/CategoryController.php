@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\CategoryTranslation;
+use Session;
 class CategoryController extends Controller
 {
     /**
@@ -14,7 +15,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $locale = Session::get('locale');
+        $category = CategoryTranslation::where('locale',$locale)->orderBy('category_id','ASC')->get();
+        return view('category.index',compact('category'));
     }
 
     /**
@@ -67,7 +70,7 @@ class CategoryController extends Controller
     public function show($id)
     {
         //
-        
+
     }
 
     /**
@@ -79,6 +82,8 @@ class CategoryController extends Controller
     public function edit($id)
     {
         //
+        $category = CategoryTranslation::find($id);
+        return view('category.edit',compact('category'));
     }
 
     /**
@@ -91,6 +96,13 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $data = $request->all();
+        $category = CategoryTranslation::find($id);
+
+        $category->title = $data['title'];
+        $category->description = $data['desc'];
+        $category->save();
+        return redirect()->back();
     }
 
     /**
@@ -102,5 +114,7 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         //
+        CategoryTranslation::find($id)->delete();
+        return redirect()->back();
     }
 }
