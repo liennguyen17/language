@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\App;
-
+use App\Http\Controllers\CategoryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,3 +29,5 @@ Route::get('/lang/{locale}', function ($locale) {
     Session::put('locale',$locale);
     return redirect()->back();
 });
+
+Route::resource('category',CategoryController::class);
