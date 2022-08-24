@@ -15,9 +15,10 @@
         
     </head>
     <body class="antialiased">
-        <h1>ko vui nha</h1>
-        <a href="{{ url('lang/en')}}">English</a>
-        <a href="{{ url('lang/jp')}}">Japanese</a>
-        <a href="{{ url('lang/vn')}}">Vietnamese</a>
+        <!-- <h2>@lang('Welcome.title_website')</h2> -->
+        <h2>{{__('welcome.title_website')}}</h2>
+        <a href="{{ url('lang/en')}}">{{__('welcome.eng_lang')}}</a>
+        <a href="{{ url('lang/jp')}}">{{__('welcome.japan_lang')}}</a>
+        <a href="{{ url('lang/vn')}}">{{__('welcome.vietnam_lang')}}</a>
     </body>
 </html>
