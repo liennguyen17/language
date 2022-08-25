@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\App;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\HomeController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,10 +17,8 @@ use App\Http\Controllers\PostController;
 |
 */
 
-Route::get('/', function () {
-    echo $locale = App::currentLocale();
-    return view('welcome');
-});
+Route::get('/',[HomeController::class,'index']);
+Route::get('/topics/{id}',[HomeController::class,'topics']);
 
 Route::get('/lang/{locale}', function ($locale) {
     if (! in_array($locale, ['en', 'jp', 'vn'])) {
