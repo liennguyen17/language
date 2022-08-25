@@ -1,4 +1,4 @@
-@extends('welcome');
+@extends('welcome')
 @section('content')
     <h4>Liệt kê danh mục</h4>
     <table class="table table-hover">

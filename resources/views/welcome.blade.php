@@ -32,8 +32,8 @@
 
                     <a href="{{route('category.create')}}" class="btn btn-info">Tạo danh mục</a>
                     <a href="{{route('category.index')}}" class="btn btn-info">Liệt kê danh mục</a>
-                    <a href="" class="btn btn-info">Tạo bài viết</a>
-                    <a href="" class="btn btn-info">Liệt kê bài viết</a>
+                    <a href="{{route('post.create')}}" class="btn btn-info">Tạo bài viết</a>
+                    <a href="{{route('post.index')}}" class="btn btn-info">Liệt kê bài viết</a>
                     <a href="" class="btn btn-info">Trang chủ</a>
                 </div>
                 @yield('content')
