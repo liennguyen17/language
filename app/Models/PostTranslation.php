@@ -15,4 +15,8 @@ class PostTranslation extends Model
     public function category(){
         return $this->belongsTo(CategoryTranslation::class,'category_id');
     }
+
+    public function post(){
+        return $this->belongsTo(Post::class,'post_id');
+    }
 }

@@ -26,9 +26,9 @@
           <form action="{{route('post.destroy',[$pos->id])}}" method="POST">
               @method('DELETE')
               @csrf
-              <button onclick="return confirm('Bạn muốn xóa bài viêtd này không?');" class="btn btn-outline-danger mr-2">Xóa</button>
+              <button onclick="return confirm('Bạn muốn xóa bài viết này không?');" class="btn btn-outline-danger mr-2">Xóa</button>
           </form>
-        <a class="btn btn-outline-primary" href="{{route('post.edit',[$pos->id])}}">Chỉnh sửa</a>
+        <a class="btn btn-outline-primary" href="{{route('post.edit',[$pos->post_id])}}">Chỉnh sửa</a>
         
       </td>
     </tr>

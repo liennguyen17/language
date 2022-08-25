@@ -96,6 +96,10 @@ class PostController extends Controller
     public function edit($id)
     {
         //
+        $locale = Session::get('locale');
+        $post = PostTranslation::with('post')->where('post_id',$id)->where('locale',$locale)->first();
+        $category = CategoryTranslation::where('locale',$locale)->get();
+        return view('post.edit')->with(compact('category','post','locale'));
     }
 
     /**
@@ -107,7 +111,37 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        $locale = Session::get('locale');
+
+        $post = Post::find($id);
+        $post->status = $data['status'];
+        $post->author = $data['author'];
+        $post->save();
+
+        $post_translate = PostTranslation::where('post_id',$id)->where('locale',$locale)->first();
+
+        $image = $request->file('image');
+
+        if($image){
+            $get_name_image = $image->getClientOriginalName();//lay ten hinh anh abc.jpg
+
+            $name_image = current(explode('.',$get_name_image));//tach ten anh dua vao dau cham abc
+
+            $new_image = $name_image.rand(0,9999).'.'.$image->getClientOriginalExtension();//ten hinh anh cong voi duoi cua no_ abs8765.jpg
+
+            $image->storeAs('public/post',$new_image);
+            $post_translate->image = $new_image;
+        }
+        $post_translate->title = $data['title'];
+        $post_translate->content = $data['content'];
+        $post_translate->category_id = $data['category_id'];
+        $post_translate->post_id = $post->id;
+        $post_translate->locale = $locale;
+        
+        $post_translate->save();
+
+        return redirect()->back();
     }
 
     /**
@@ -119,5 +153,7 @@ class PostController extends Controller
     public function destroy($id)
     {
         //
+        PostTranslation::find($id)->delete();
+        return redirect()->back();
     }
 }
