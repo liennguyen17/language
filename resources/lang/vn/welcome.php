@@ -4,6 +4,6 @@
         'japan_lang' => 'Tiếng Nhật',
         'eng_lang' => 'Tiếng Anh',
         'vietnam_lang' => 'Tiếng Việt',
-        'homepage' => 'Trang chủ'
+        
     ];
 ?>

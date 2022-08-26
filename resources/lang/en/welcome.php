@@ -4,6 +4,6 @@
         'japan_lang' => 'Japanese',
         'eng_lang' => 'English',
         'vietnam_lang' => 'Vietnamese',
-        'homepage' => 'Home'
+        
     ];
 ?>

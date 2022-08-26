@@ -16,11 +16,11 @@
   <div class="form-group">
     <label for="exampleFormControlInput1">Tác giả</label>
     <input type="text" class="form-control" required name="author" value="{{$post->post->author}}" id="exampleFormControlInput1" placeholder="Nhập tên tác giả:">
-    <img src="{{asset('/storage/post/'.$post->image)}}" width="150px" height="150px" alt="">
   </div>
   <div class="form-group">
     <label for="exampleFormControlInput1">Hình ảnh</label>
     <input type="file" name="image" class="form-control" id="exampleFormControlInput1" placeholder="Chọn tệp:">
+    <img src="{{asset('/storage/post/'.$post->image)}}" width="150px" height="150px" alt="">
   </div>
   <div class="form-group">
     <label for="exampleFormControlSelect1">Danh mục bài viết</label>
